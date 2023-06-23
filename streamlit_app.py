@@ -17,5 +17,3 @@ streamlit.dataframe(my_fruit_list)
 #ponemos una lista para seleccionar
 streamlit.multiselect('frutas_lista:',list(my_fruit_list.index)
 
-#display
-streamlit.dataframe(my_fruit_list)
