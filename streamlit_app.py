@@ -28,9 +28,11 @@ def main():
 
 #new section to display fruityvice api response
 st.header('Fruityvice Fruit Advice')
-fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
+fruit_choice = st.text_input('What fruit would you like information about?', 'Kiwi')
 st.write('The User entered', fruit_choice)
 
-fruityvice_response = requests.get ("https://fruityvice.com/api/fruit/" + fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+st.write(fruityvice_response.json())
+
 if __name__ == "__main__":
     main()
