@@ -32,6 +32,7 @@ def main():
   st.write('The User entered', fruit_choice)
 
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+  st.dataframe(fruityvice_normalized)
 
 
 if __name__ == "__main__":
