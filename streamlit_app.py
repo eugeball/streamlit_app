@@ -22,9 +22,9 @@ def main():
   st.text(fruityvice_response.json())
 
   #take the json version of response and normalize it
-  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
   #output it the screen as a table
-  streamlit.dataframe(fruityvice_normalized)
+  st.dataframe(fruityvice_normalized)
 
 if __name__ == "__main__":
     main()
