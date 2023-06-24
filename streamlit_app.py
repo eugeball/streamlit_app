@@ -29,7 +29,7 @@ import streamlit as st
 import pandas as pd
 import requests
 
-def main():
+
     st.title('Euge es la mas linda ahr')
 
     st.header('🥑🍞Menú de desayuno')
@@ -49,6 +49,5 @@ def main():
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
     st.json(fruityvice_response.json())
 
-if __name__ == "__main__":
-    main()
+
 
