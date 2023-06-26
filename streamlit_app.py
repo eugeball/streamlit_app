@@ -31,7 +31,7 @@ def main():
   #new section to display fruityvice api response
   st.header('fruityvice fruit advice')
   try:
-    fruit_choice =ct.text_input('what fruit would you like information about?')
+    fruit_choice =st.text_input('what fruit would you like information about?')
     if not fruit_choice:
       st.error('please select a fruit to get information.')
     else:
