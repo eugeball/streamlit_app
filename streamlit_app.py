@@ -34,6 +34,6 @@ def main():
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
   st.dataframe(fruityvice_normalized)
 
-
+import snowflake.connector
 if __name__ == "__main__":
     main()
