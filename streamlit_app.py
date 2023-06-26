@@ -67,12 +67,12 @@ def main():
 
   add_my_fruit =st.text_input('what fruit whould you like to add?')
   if st.button ('add a fruit to the list'):
-    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
     back_from_function= insert_row_snowflake(add_my_fruit)
     st.text(back_from_function)
   
   #this will not work correctly, but just go with it for now
-  my_cur.execute("insert into fruit_load_list_values (´from streamlit')")
+  my_cur.execute("insert into fruit_load_list_values ('from streamlit')")
   
   
 if __name__ == "__main__":
