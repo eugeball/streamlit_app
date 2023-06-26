@@ -42,6 +42,10 @@ def main():
   my_data_row = my_cur.fetchall()
   st.header("the fruit load list contains:")
   st.dataframe(my_data_row)
+
+  st.write('thanks for adding', add_my_fruit)
+  #this will not work correctly, but just go with it for now
+  my_cur.execute("insert into fruit_load_list_values (´from streamlit')")
   
   
 if __name__ == "__main__":
