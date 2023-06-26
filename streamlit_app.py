@@ -40,7 +40,8 @@ def main():
   my_cur = my_cnx.cursor()
   my_cur.execute("SELECT * from fruit_load_list")
   my_data_row = my_cur.fetchone()
-  st.text("the fruit load list contains:")
+  st.header("the fruit load list contains:")
+  st.dataframe(my_data:row)
   st.text(my_data_row)
   
 if __name__ == "__main__":
