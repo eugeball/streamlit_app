@@ -5,7 +5,7 @@ import snowflake.connector
 from urllib.error import URLError
 
 def main():
-  st.title('Euge es la mas linda ahr')
+  st.title('menu menu menuuuuuu')
   st.header('🥑🍞Menú de desayuno')
   st.text('🥑🍞Omega 3 y avena con arándanos')
   st.text('🥑🍞Batido de col rizada, espinacas y rúcula')
@@ -22,7 +22,6 @@ def main():
 
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
   
-
   #take the json version of response and normalize it
   fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
   #output it the screen as a table
@@ -47,14 +46,20 @@ def main():
   except URLError as e:
     st.error()
     
-  
-  my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-  my_cur = my_cnx.cursor()
-  my_cur.execute("SELECT * from fruit_load_list")
-  my_data_row = my_cur.fetchall()
-  st.header("the fruit load list contains:")
-  st.dataframe(my_data_row)
+  st.header('the fruit load list contains:')
+  #snowflake-reladed functions
+  def get_fruit_load_list():
+    with my_cnx.cursor() as my_cur:
+      my_cur.execute('select * from fruit_load_list')
+      return my_cur.fetchall()
 
+  #add a button to load the fruit
+  if st.button('get fruit load list'):
+    my_cnx =snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    my_data_rows= get_fruit_load_list()
+    st.dataframe(my_data_rows)
+  
+ 
   st.write('thanks for adding', add_my_fruit)
   #this will not work correctly, but just go with it for now
   my_cur.execute("insert into fruit_load_list_values (´from streamlit')")
